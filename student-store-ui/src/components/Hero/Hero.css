@@ -1,0 +1,32 @@
+.hero {
+    width: 100%;
+    max-width: 100vw;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+}
+.hero-img{
+    width: 200px;
+    height: 200px;
+    margin-right: 200px; 
+    
+}
+.hero-container{
+    text-align: left;
+    background-color: antiquewhite;
+    height: auto;
+    flex-direction: row;
+    display: flex;
+    padding-right: 150px
+}
+.intro{
+    padding: 40px;
+    padding-right: 600px;
+    font-size: 100%;
+    margin: 0 auto;
+}
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }

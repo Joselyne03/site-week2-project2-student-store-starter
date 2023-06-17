@@ -1,8 +1,22 @@
 .home {
   width: 100%;
   max-width: 100vw;
-  height: 100%;
+  height: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-left: 67px;
+  margin-right: 67px;
+}
+.about{
+  width: 82%;
+  max-width: 100vw;
+  min-height: 350px;
+  margin-right: 67px;
+}
+.contact{
+  width: 90%;
+  max-width: 100vw;
+  min-height: 350px;
+  margin: 40px 0;
 }
