@@ -77,13 +77,14 @@ export default function App() {
       
 
     }
-    //console.log("This is the current Quantity: " + quantity);
+  //console.log("This is the current Quantity: " + quantity);
   }
   //should be called when the input is placed with onChange
-  //should chnage the setCheckOutForm
+  //should change the setCheckOutForm
   const handleCheckoutFormChange = (name, value) => {
 2
   }
+
   //Should be called when the button is clicked
   const handleOnSubmitCheckoutForm = () => {
 
