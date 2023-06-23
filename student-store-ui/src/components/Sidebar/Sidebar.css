@@ -1,1 +1,40 @@
 /* This component is not implemented in this version of the project. */
+.sidebar.close{
+    width: 60px;
+}
+.sidebar.open{
+    width: 575px;
+}
+.sidebar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex: 1;
+        transition: all .2s cubic-bezier(.215,.61,.355,1);
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        height: 100vh;
+        padding: 0;
+        overflow-y: scroll;
+        padding-bottom: 2rem;
+        background: #B90E0A;
+        border-right: solid 1px white;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.toggle-button{
+    margin-top: 20px;
+    transition: all .2s cubic-bezier(.075,.82,.165,1);
+    background: transparent;
+    color: #fff;
+    border: none;
+}
+.toggle-button.open{
+    transform: rotateY(180deg);
+}

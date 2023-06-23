@@ -10,8 +10,20 @@ import ProductDetail from "../ProductDetail/ProductDetail"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
-export default function ProductCard({product,productId,quantity,handelAddItemToCart,handelRemoveItemToCart,showDescription = false}) {
-    
+export default function ProductCard({product,handleAddItemToCart,handleRemoveItemToCart,showDescription = false,shoppingCart}) {
+    let quantityDisplay = (<div> Nothing </div>)
+    if (Array.isArray(shoppingCart)){
+        //console.log(product);
+        const item = shoppingCart.find((item) => item.itemId === product.id);
+        item ? quantityDisplay = item.quantity : quantityDisplay = 0
+        // console.log("This is the item in Shopping cart: " + item.quantity);
+        //quantity = item.quantity;
+        
+        // if (quantity !== 0){
+        //     quantityDisplay = (<span className="amount">{quantity}</span>)
+
+    }
+    //console.log(shoppingCart);
     return (
         <div className="product-card"> 
             <div className="media">
@@ -31,12 +43,13 @@ export default function ProductCard({product,productId,quantity,handelAddItemToC
                 </div>
                 <div className="actions">
                     <div className="buttons">
-                        <button className="add">+</button>
-                        <button className="remove">-</button>
+                        <button className="add" onClick={() => {handleAddItemToCart(product)}}>+</button>
+                        <button className="remove" onClick={() => {handleRemoveItemToCart(product)}}>-</button>
                     </div>
+                   
                     <span className="quantity">
-                        <span className="amount">{quantity}</span>
-                    </span>
+                        {quantityDisplay}
+                    </span> 
 
                 </div>
             </div>

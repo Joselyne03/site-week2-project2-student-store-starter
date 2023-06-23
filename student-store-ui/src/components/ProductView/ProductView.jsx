@@ -8,7 +8,7 @@ import ProductCard from "../ProductCard/ProductCard"
 import Hero from "../Hero/Hero"
 import ProductGrid from "../ProductGrid/ProductGrid"
 
-export default function ProductView({product,productId,quantity,handelAddItemToCart,handelRemoveItemToCart}) {
+export default function ProductView({product,productId,quantity,handleAddItemToCart,handleRemoveItemToCart}) {
 
     return (
         <div className="product-view">

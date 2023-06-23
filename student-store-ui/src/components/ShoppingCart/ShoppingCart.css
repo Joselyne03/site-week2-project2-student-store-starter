@@ -1,0 +1,14 @@
+/* This component is not implemented in this version of the project.*/
+.shopping-cart{
+    width: 100%;
+    color: #fff;
+}
+.cart-open{
+    max-width: 550px;
+}
+.header{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -10,14 +10,16 @@ import About from "../About/About"
 import Contact from "../Contact/Contact"
 import Footer from "../Footer/Footer"
 
-export default function Home({products, handelAddItemToCart,handelRemoveItemToCart}) {
+export default function Home({products, handleAddItemToCart,handleRemoveItemToCart, shoppingCart}) {
   return (
     <div className="home">
       <Hero />
       <ProductGrid  
         products = {products} 
-                    handelAddItemToCart = {handelAddItemToCart} 
-                    handelRemoveItemToCart = {handelRemoveItemToCart} 
+                    handleAddItemToCart = {handleAddItemToCart} 
+                    handleRemoveItemToCart = {handleRemoveItemToCart} 
+                    shoppingCart={shoppingCart}
+                    //quantity={quantity}
       />
       <div className="about" >
           <div className="about-content">

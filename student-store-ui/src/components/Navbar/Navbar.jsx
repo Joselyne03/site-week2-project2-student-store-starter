@@ -15,7 +15,7 @@ export default function Navbar(props) {
             <Logo />
           </div>
           <div className="links">
-             <a ><Link to="/">Home </Link></a>
+             <Link to="/">Home </Link>
              <a href = "/#about">About</a>
              <a href= "/#contact-us">Contact Us</a> 
   

@@ -1,6 +1,6 @@
 /* 
 This is component displays the list of the product from the api
-Multiple event handelers can be added to this component as a 
+Multiple event handleers can be added to this component as a 
 way to filiter teh list of product based on the users input
 in the searchbar.
 It also filiters the list of product whenever the user clicks
@@ -12,7 +12,7 @@ import "./ProductGrid.css"
 import ProductCard from "../ProductCard/ProductCard"
 import { useState } from "react";
 
-export default function ProductGrid({products,handelAddItemToCart,handelRemoveItemToCart}){
+export default function ProductGrid({products,handleAddItemToCart,handleRemoveItemToCart,shoppingCart}){
     const [searchedItem,setSearchedItem] = useState("");
     const [filterProducts,setFilteredProducts] = useState(products);
     const [category,setCategory] = useState("");
@@ -31,7 +31,7 @@ export default function ProductGrid({products,handelAddItemToCart,handelRemoveIt
             );
         }
     };
-    const handelCategory = (categoryName) => {
+    const handleCategory = (categoryName) => {
         setCategory(categoryName);
         if(categoryName === "All-Categories"){
             setFilteredProducts(products);
@@ -47,10 +47,14 @@ export default function ProductGrid({products,handelAddItemToCart,handelRemoveIt
     let listOfProducts =  filterProducts.map((product) => (
         <div className="grid-card"> 
             <ProductCard 
-                key = {product.id}
+                key = {product}
                 product = {product}
-                quantity = {number}
+                productId={product.id}
+                //quantity = {quantity}
                 showDescription= {false}
+                handleAddItemToCart={handleAddItemToCart}
+                handleRemoveItemToCart={handleRemoveItemToCart}
+                shoppingCart={shoppingCart}
                 /> 
         </div>
             
@@ -80,11 +84,11 @@ export default function ProductGrid({products,handelAddItemToCart,handelRemoveIt
                     <div className='row'>
                         <div className='content-menu'>
                             <ul className='category-menu'>
-                                <li><button type="button" className='menu-category'onClick={() => handelCategory('All-Categories')}>All Categories</button></li>
-                                <li><button type="button" className='menu-category' onClick={() => handelCategory('clothing')} >Clothing</button></li>
-                                <li><button type="button" className='menu-category' onClick={() => handelCategory('food')}>Food</button></li>
-                                <li><button type="button" className='menu-category' onClick={() => handelCategory('accessories')}>Accessories</button></li>
-                                <li><button type="button" className='menu-category' onClick={() => handelCategory('tech')}>Tech</button></li>
+                                <li><button type="button" className='menu-category'onClick={() => handleCategory('All-Categories')}>All Categories</button></li>
+                                <li><button type="button" className='menu-category' onClick={() => handleCategory('clothing')} >Clothing</button></li>
+                                <li><button type="button" className='menu-category' onClick={() => handleCategory('food')}>Food</button></li>
+                                <li><button type="button" className='menu-category' onClick={() => handleCategory('accessories')}>Accessories</button></li>
+                                <li><button type="button" className='menu-category' onClick={() => handleCategory('tech')}>Tech</button></li>
                             </ul>
                         </div>
                     </div>

@@ -1,0 +1,89 @@
+.cartTable{
+    width: 100%;
+    margin: 0 10px;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    background: var(--pure-white);
+    border: solid 1px var(--border-color);
+    border-radius: 4px;
+    width: 100%;
+}
+.reciept{
+    display: flex;
+    flex-direction: column;
+    background: var(--pure-white);
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+.header-row{
+    display: flex;
+    height: 50px;
+    background: var(--dark-blue);
+    margin-bottom: 15px;
+}
+.product-row{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    border-bottom: solid 1px var(--border-color);
+}
+
+.flex-2{
+    padding-left: 10px;
+    flex: 1;
+    color: var(--pure-white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    color: var(--pure-white);
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.reciept-subtotal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.reciept-taxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.reciept-total{
+    border-top: solid 1px grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+
+}
+.label{
+    font-weight: 600;
+    padding-left: 10px;
+}
+.center-subtotal{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+.center-total{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}

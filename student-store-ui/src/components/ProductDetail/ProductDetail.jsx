@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // gain the props from the App component
-export default function ProductDetail({handelAddItemToCart,handelRemoveItemToCart}) {
+export default function ProductDetail({handleAddItemToCart,handleRemoveItemToCart}) {
     const [productInfo,setProductInfo] = useState(null);
     const {productId} = useParams(); //gets the id from app component
     
