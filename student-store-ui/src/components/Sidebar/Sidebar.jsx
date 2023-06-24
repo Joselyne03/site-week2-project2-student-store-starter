@@ -5,7 +5,7 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 // This component is not implemented in this version of the project.
 export default function Sidebar({isOpen, handleOnToggle,shoppingCart, 
   checkoutForm, handleOnCheckoutFormChange, 
-  handleOnSubmitCheckoutForm,productList}) {
+  handleOnSubmitCheckoutForm,productList,submitChecker, setShoppingCart}) {
   const sidebarState = `sidebar ${isOpen}`;
   const toggleButton = `toggle-button ${isOpen}`;
   return (
@@ -16,9 +16,13 @@ export default function Sidebar({isOpen, handleOnToggle,shoppingCart,
         isOpen={isOpen}
         shoppingCart={shoppingCart}
         productList={productList}
+        handleOnCheckoutFormChange = {handleOnCheckoutFormChange}
+        handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+        checkoutForm = {checkoutForm}
+        submitChecker={submitChecker}
+        setShoppingCart = {setShoppingCart}
         />
         
-      {/* <p>Sidebar</p> */}
       </div>
 
     </section>

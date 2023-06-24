@@ -20,6 +20,8 @@ export default function ProductView({product,productId,quantity,handleAddItemToC
                     key = {product.id}
                     product = {product}
                     productId = {product.id}
+                    handleAddItemToCart={handleAddItemToCart}
+                    handleRemoveItemToCart={handleRemoveItemToCart}
                     showDescription= {true}
                     /> 
                 </div>   

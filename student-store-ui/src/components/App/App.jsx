@@ -15,6 +15,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import ProductDetail from "../ProductDetail/ProductDetail";
 import About from "../About/About";
+import CheckoutSuccess from "../CheckoutSuccess/CheckoutSuccess";
+
 
 export default function App() {
   const [product, setProduct] = useState([]);
@@ -23,18 +25,17 @@ export default function App() {
   const [error, setError] = useState("");
   const [shoppingCart, setShoppingCart] = useState([]);
   const [quantity,setQuantity] = useState(null);
-  const [checkoutForm, setCheckoutForm] = useState([]);
+  const [checkoutForm, setCheckoutForm] = useState({email: "", name: ""});
+  const [submitChecker,setSubmitChecker] = useState(false);
   //the checkout form shoudl have the email 
 
 
   function handleOnToggle() {
-    //console.log("IN HANDLE ON TOGGLE")
     if (isOpen === "close") {
       setIsOpen("open");
     } else if (isOpen === "open") {
       setIsOpen("close");
     }
-    //console.log(isOpen);
     
   }
 
@@ -70,28 +71,25 @@ export default function App() {
         idFound.price = idFound.price - originalPrice;
       }else {
         let index = shoppingCart.indexOf(idFound);
-        //console.log("This is the index: " + index);
         shoppingCart.splice(index,1);
       }
       setQuantity(idFound.quantity);
       
 
     }
-  //console.log("This is the current Quantity: " + quantity);
   }
-  //should be called when the input is placed with onChange
-  //should change the setCheckOutForm
-  const handleCheckoutFormChange = (name, value) => {
-2
+  const handleOnCheckoutFormChange = (name, event) => {
+    //here prevState is used to ensure it ke
+    setCheckoutForm(prevState => ({...prevState,[name] : event}))
   }
 
   //Should be called when the button is clicked
-  const handleOnSubmitCheckoutForm = () => {
-
+  const handleOnSubmitCheckoutForm = (event) => {
+    event.preventDefault(); 
+    setSubmitChecker(true);
   }
-
   useEffect(() => {
-    axios.get(`https://codepath-store-api.herokuapp.com/store`)
+    axios.get(`http://localhost:3001/store`)
       .then((response => {
         setProduct(response.data.products);
       }))
@@ -100,7 +98,6 @@ export default function App() {
       })
 
   }, [])
-  //console.log("This is the shoppingCart: " + shoppingCart);
   return (
     <div className="app">
       <BrowserRouter>
@@ -110,6 +107,11 @@ export default function App() {
             handleOnToggle={handleOnToggle}
             shoppingCart={shoppingCart}
             productList={product}
+            handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+            checkoutForm = {checkoutForm}
+            submitChecker = {submitChecker}
+            setShoppingCart = {setShoppingCart}
           />
           <Navbar />
           <Routes>
@@ -127,7 +129,7 @@ export default function App() {
             />
             <Route
               path="/products/:productId"
-              element={<ProductDetail />}
+              element={<ProductDetail handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart={handleRemoveItemToCart} />}
             />
             <Route
               path="/#About"

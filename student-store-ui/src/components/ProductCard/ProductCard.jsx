@@ -13,17 +13,10 @@ import { useState } from "react"
 export default function ProductCard({product,handleAddItemToCart,handleRemoveItemToCart,showDescription = false,shoppingCart}) {
     let quantityDisplay = (<div> Nothing </div>)
     if (Array.isArray(shoppingCart)){
-        //console.log(product);
         const item = shoppingCart.find((item) => item.itemId === product.id);
         item ? quantityDisplay = item.quantity : quantityDisplay = 0
-        // console.log("This is the item in Shopping cart: " + item.quantity);
-        //quantity = item.quantity;
-        
-        // if (quantity !== 0){
-        //     quantityDisplay = (<span className="amount">{quantity}</span>)
-
     }
-    //console.log(shoppingCart);
+    
     return (
         <div className="product-card"> 
             <div className="media">

@@ -1,0 +1,9 @@
+.checkout-sucess{
+    width: 100%;
+    padding: 1rem;
+}
+.checkout-card{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}

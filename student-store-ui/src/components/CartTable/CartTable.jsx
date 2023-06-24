@@ -3,9 +3,8 @@ import { useState } from "react"
 import "./CartTable.css"
 //import { useState } from "react";
 
-export default function CartTable({shoppingCart,isOpen,productList}){
+export default function CartTable({shoppingCart,productList}){
 //must see if the product is in the cart or not
-//console.log(productList);
 let subtotal = 0;
 shoppingCart.map((element) => {
     subtotal += element.price;
@@ -22,9 +21,8 @@ if(shoppingCart.length === 0){
     //)
 }else if(shoppingCart !== 0){
     //here shopping cart is displayed as a personal row
-    //const item = products.find((item) => item.id === element.id);
-    let productRow = shoppingCart.map((element) => (
-    <div className="product-row" >
+    let productRow = shoppingCart.map((element,key) => (
+    <div key= {element.itemId} className="product-row" >
         <span className="flex-2 product-name">{productList[element.itemId-1].name}</span>
         <span className="center product-quantity" >{element.quantity}</span>
         <span className="center product-price">${productList[element.itemId-1].price.toFixed(2)}</span>

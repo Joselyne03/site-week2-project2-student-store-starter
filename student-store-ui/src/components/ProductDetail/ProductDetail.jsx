@@ -20,7 +20,6 @@ export default function ProductDetail({handleAddItemToCart,handleRemoveItemToCar
         axios.get(`https://codepath-store-api.herokuapp.com/store/${productId}`)
         .then((response => {
           setProductInfo(response.data.product);
-          //console.log(response);
         }))
         .catch((error) => {
           setError("There was an error");
@@ -33,7 +32,8 @@ export default function ProductDetail({handleAddItemToCart,handleRemoveItemToCar
     return (
         <div className="product-detail"> 
           <div className="product-view">
-              <ProductView  product = {productInfo} productId = {productInfo.id}/>
+              <ProductView  product = {productInfo} productId = {productInfo.id} 
+              handleAddItemToCart={handleAddItemToCart} handleRemoveItemToCart = {handleRemoveItemToCart}/>
           </div>
            
         </div>
